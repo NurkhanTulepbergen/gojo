@@ -10,9 +10,8 @@ export default function App() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [showFavorites, setShowFavorites] = useState(false);
-    const [isFavoritesLoaded, setIsFavoritesLoaded] = useState(false); // ✅ новый флаг
+    const [isFavoritesLoaded, setIsFavoritesLoaded] = useState(false);
 
-    // === FETCH: Top anime OR search ===
     const fetchAnime = async (query = "") => {
         setLoading(true);
         setError("");
@@ -37,12 +36,10 @@ export default function App() {
         }
     };
 
-    // === INITIAL FETCH ===
     useEffect(() => {
         fetchAnime();
     }, []);
 
-    // === LOAD favorites from localStorage ===
     useEffect(() => {
         try {
             const stored = localStorage.getItem("favorites");
@@ -52,24 +49,21 @@ export default function App() {
         } catch (err) {
             console.warn("Failed to load favorites:", err);
         } finally {
-            setIsFavoritesLoaded(true); // ✅ теперь можно сохранять
+            setIsFavoritesLoaded(true);
         }
     }, []);
 
-    // === SAVE favorites only after loaded ===
     useEffect(() => {
         if (isFavoritesLoaded) {
             localStorage.setItem("favorites", JSON.stringify(favorites));
         }
     }, [favorites, isFavoritesLoaded]);
 
-    // === HANDLE SEARCH ===
     const handleSearch = (e) => {
         e.preventDefault();
         fetchAnime(searchTerm);
     };
 
-    // === ADD OR REMOVE FAVORITE ===
     const toggleFavorite = (anime) => {
         const exists = favorites.some((fav) => fav.mal_id === anime.mal_id);
         if (exists) {

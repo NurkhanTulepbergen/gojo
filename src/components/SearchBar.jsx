@@ -2,7 +2,6 @@ import React from "react";
 import "./SearchBar.css";
 
 export default function SearchBar({ searchTerm, setSearchTerm, handleSearch, fetchAnime }) {
-    // Очистка поиска + возврат ко всем аниме
     const handleClear = () => {
         setSearchTerm("");
         fetchAnime(); // 👈 заново подгружаем топ-аниме
