@@ -1,0 +1,87 @@
+.anime-card {
+    background-color: #1f2833;
+    width: 220px;
+    height: 400px;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.anime-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.3);
+}
+
+.anime-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.anime-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.anime-info h3 {
+    font-size: 1rem;
+    margin: 8px 0 4px;
+    text-align: center;
+    min-height: 36px;
+}
+
+.anime-info p {
+    font-size: 0.9rem;
+    color: #ffdf5d;
+    margin: 2px 0;
+}
+
+/* Нижняя панель (footer) */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* “More info” теперь слева */
+.more-info {
+    background-color: #45a29e;
+    color: #0b0c10;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.more-info:hover {
+    background-color: #66fcf1;
+}
+
+/* ❤️ справа */
+.like-button {
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    color: #ccc;
+}
+
+.like-button:hover {
+    transform: scale(1.25);
+}
+
+.liked {
+    color: #ff6f91;
+}
