@@ -4,7 +4,7 @@ import "./SearchBar.css";
 export default function SearchBar({ searchTerm, setSearchTerm, handleSearch, fetchAnime }) {
     const handleClear = () => {
         setSearchTerm("");
-        fetchAnime(); 
+        fetchAnime(); // ✅ сразу подгружаем топ-аниме
     };
 
     return (

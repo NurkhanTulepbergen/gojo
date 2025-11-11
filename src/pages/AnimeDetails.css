@@ -1,0 +1,31 @@
+.anime-details {
+    max-width: 800px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.anime-details img {
+    width: 300px;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.anime-details p {
+    color: #e2e8f0;
+    margin: 0.4rem 0;
+}
+
+.back-btn {
+    background: #334155;
+    border: none;
+    padding: 0.4rem 0.9rem;
+    border-radius: 8px;
+    color: #f1f5f9;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.back-btn:hover {
+    background: #38bdf8;
+    color: #0f172a;
+}

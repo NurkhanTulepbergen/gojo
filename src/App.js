@@ -1,3 +1,4 @@
+/*
 import React, { useState, useEffect } from "react";
 import SearchBar from "./components/SearchBar";
 import AnimeList from "./components/AnimeList";
@@ -112,5 +113,30 @@ export default function App() {
                 />
             )}
         </div>
+    );
+}
+*/
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RootLayout from "./layouts/RootLayout";
+import Home from "./pages/Home";
+import AnimeListPage from "./pages/AnimeListPage";
+import AnimeDetails from "./pages/AnimeDetails";
+import Favorites from "./pages/Favorites";
+import Login from "./pages/Login";
+
+export default function App() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<RootLayout />}>
+                    <Route index element={<Home />} />
+                    <Route path="items" element={<AnimeListPage />} />
+                    <Route path="items/:id" element={<AnimeDetails />} />
+                    <Route path="favorites" element={<Favorites />} />
+                    <Route path="login" element={<Login />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }

@@ -1,0 +1,91 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0f172a;
+    padding: 1rem 2.5rem;
+    border-bottom: 1px solid #1e293b;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* === ЛОГО === */
+.logo {
+    font-size: 1.5rem;
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: 0.25s ease;
+}
+
+.logo:hover {
+    color: #7dd3fc;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.7);
+}
+
+/* === ССЫЛКИ === */
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar-links a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+
+.navbar-links a:hover {
+    color: #7dd3fc;
+    text-shadow: 0 0 8px #38bdf8;
+}
+
+/* === АКТИВНАЯ СТРАНИЦА === */
+/* Убираем фоновую заливку, добавляем неоновую подсветку */
+.navbar-links a.active {
+    background: none;
+    color: #38bdf8;
+    text-shadow: 0 0 10px #38bdf8;
+    position: relative;
+}
+
+/* Подчёркивание неоновое под активной ссылкой */
+.navbar-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #38bdf8;
+    border-radius: 2px;
+    box-shadow: 0 0 6px #38bdf8;
+    animation: glow 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* === АДАПТИВ === */
+@media (max-width: 700px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .navbar-links {
+        gap: 1.2rem;
+    }
+}
