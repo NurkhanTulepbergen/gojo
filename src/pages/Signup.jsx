@@ -1,11 +1,10 @@
-// src/pages/Login.jsx
+// src/pages/Signup.jsx
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import "./Login.css";
 
-export default function Login() {
-    const { login } = useAuth();
+export default function Signup() {
+    const { signup } = useAuth();
     const navigate = useNavigate();
 
     const [email, setEmail] = useState("");
@@ -17,7 +16,7 @@ export default function Login() {
         e.preventDefault();
         try {
             setLoading(true);
-            await login(email, password);
+            await signup(email, password);
             navigate("/profile");
         } catch (err) {
             setError(err.message);
@@ -27,7 +26,7 @@ export default function Login() {
 
     return (
         <div className="auth-page">
-            <h2>Login</h2>
+            <h2>Signup</h2>
             {error && <p style={{ color: "red" }}>{error}</p>}
 
             <form onSubmit={handleSubmit}>
@@ -45,11 +44,11 @@ export default function Login() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
-                <button disabled={loading}>Login</button>
+                <button disabled={loading}>Create Account</button>
             </form>
 
             <p>
-                No account? <Link to="/register">Signup</Link>
+                Already have an account? <Link to="/login">Login</Link>
             </p>
         </div>
     );

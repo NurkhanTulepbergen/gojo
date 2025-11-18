@@ -32,7 +32,7 @@ export default function Favorites() {
                 <AnimeList
                     animeList={favorites}
                     favorites={favorites}
-                    toggleFavorite={toggleFavorite} // ✅ теперь можно убирать лайк
+                    toggleFavorite={toggleFavorite} //
                 />
             ) : (
                 <p>No favorites yet!</p>

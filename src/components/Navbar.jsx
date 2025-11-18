@@ -15,7 +15,7 @@ export default function Navbar() {
                 <NavLink to="/" end>Home</NavLink>
                 <NavLink to="/items">All Anime</NavLink>
                 <NavLink to="/favorites">Favorites</NavLink>
-                <NavLink to="/login">Login</NavLink>
+                <NavLink to="/profile">Profile</NavLink>
             </div>
         </nav>
     );

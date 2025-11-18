@@ -1,0 +1,125 @@
+/* Общий контейнер страницы авторизации */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle at top, #ff8ba7 0, #1b1528 45%, #05010a 100%);
+    color: #f9f9ff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    padding: 1rem;
+}
+
+/* Заголовок */
+.auth-page h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 0 12px rgba(255, 182, 193, 0.9);
+}
+
+/* Карточка формы */
+.auth-page form {
+    background: rgba(10, 6, 20, 0.85);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    box-shadow:
+            0 0 25px rgba(255, 105, 180, 0.25),
+            0 0 60px rgba(137, 96, 255, 0.25);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    min-width: 280px;
+    max-width: 360px;
+}
+
+/* Поля ввода */
+.auth-page input[type="email"],
+.auth-page input[type="password"] {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    padding: 0.65rem 1rem;
+    color: #f9f9ff;
+    outline: none;
+    font-size: 0.95rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.auth-page input::placeholder {
+    color: rgba(249, 249, 255, 0.55);
+}
+
+.auth-page input:focus {
+    border-color: #ff9fd0;
+    box-shadow: 0 0 10px rgba(255, 159, 208, 0.6);
+    background: rgba(255, 255, 255, 0.09);
+}
+
+/* Кнопка */
+.auth-page button {
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 999px;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ff7ac4, #8f6bff);
+    color: #0b050f;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.auth-page button:hover:not(:disabled) {
+    transform: translateY(-1px) scale(1.01);
+    box-shadow: 0 0 18px rgba(255, 154, 214, 0.8);
+}
+
+.auth-page button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+/* Ошибки */
+.auth-page p[style*="color: \"red\""] {
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* Низ: линк на signup/login */
+.auth-page > p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.auth-page a {
+    color: #ffb3e6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.auth-page a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптив */
+@media (max-width: 480px) {
+    .auth-page form {
+        width: 100%;
+        max-width: 320px;
+        padding: 1.5rem;
+    }
+
+    .auth-page h2 {
+        font-size: 1.6rem;
+    }
+}

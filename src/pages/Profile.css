@@ -1,0 +1,91 @@
+/* Контейнер страницы профиля */
+.profile-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: radial-gradient(circle at top, #9f78ff 0%, #1c1232 50%, #08010f 100%);
+    color: #f4f1ff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    padding: 1rem;
+}
+
+/* Карточка профиля */
+.profile-card {
+    background: rgba(20, 8, 40, 0.8);
+    border-radius: 22px;
+    padding: 2rem 2.5rem;
+    text-align: center;
+
+    box-shadow:
+            0 0 30px rgba(150, 90, 255, 0.4),
+            0 0 80px rgba(90, 50, 255, 0.25);
+
+    backdrop-filter: blur(10px);
+
+    width: 330px;
+}
+
+/* Заголовок */
+.profile-card h2 {
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    font-size: 1.7rem;
+
+    text-shadow: 0 0 14px rgba(255, 174, 255, 0.8);
+}
+
+/* Аватар */
+.profile-avatar {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff95d6, #7b63ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2.3rem;
+    font-weight: bold;
+    margin: 0 auto 1.2rem;
+
+    box-shadow:
+            0 0 15px rgba(255, 150, 240, 0.9),
+            0 0 40px rgba(150, 100, 255, 0.6);
+}
+
+/* Текст информации */
+.profile-info p {
+    margin: 0.4rem 0;
+    font-size: 1rem;
+}
+
+/* Кнопка logout */
+.profile-card button {
+    margin-top: 1.5rem;
+
+    background: linear-gradient(to right, #ff79c9, #7d6aff);
+    border: none;
+    border-radius: 14px;
+
+    padding: 0.7rem 1.2rem;
+    cursor: pointer;
+    width: 100%;
+
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #1b082d;
+
+    transition: all 0.16s ease;
+}
+
+.profile-card button:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 0 18px rgba(255, 160, 255, 0.9);
+}
+
+.profile-card button:active {
+    transform: scale(0.97);
+}
