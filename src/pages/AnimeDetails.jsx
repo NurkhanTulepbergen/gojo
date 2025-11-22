@@ -1,44 +1,42 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getAnimeById } from "../services/animeService";
-import "./AnimeDetails.css";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
+import { fetchItemById } from "../features/items/itemsSlice";
+import "./AnimeDetails.css";
 
 export default function AnimeDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [anime, setAnime] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState("");
+    const dispatch = useDispatch();
+
+    const {
+        selectedItem,
+        loadingItem,
+        errorItem
+    } = useSelector((state) => state.items);
 
     useEffect(() => {
-        async function fetchData() {
-            try {
-                const data = await getAnimeById(id);
-                setAnime(data);
-            } catch (err) {
-                setError("Failed to load anime details.");
-            } finally {
-                setLoading(false);
-            }
-        }
-        fetchData();
-    }, [id]);
+        dispatch(fetchItemById(id));
+    }, [dispatch, id]);
 
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>{error}</p>;
-    if (!anime) return <p>Not found</p>;
+    if (loadingItem) return <p>Loading...</p>;
+    if (errorItem) return <p>{errorItem}</p>;
+    if (!selectedItem) return <p>Not found</p>;
 
     return (
         <div className="anime-details">
             <button onClick={() => navigate(-1)} className="back-btn">⬅ Back</button>
-            <h2>{anime.title}</h2>
-            <img src={anime.images.jpg.image_url} alt={anime.title} />
-            <p><strong>Type:</strong> {anime.type}</p>
-            <p><strong>Episodes:</strong> {anime.episodes}</p>
-            <p><strong>Rating:</strong> {anime.score}</p>
-            <p><strong>Year:</strong> {anime.year}</p>
-            <p><strong>Synopsis:</strong> {anime.synopsis}</p>
+            <h2>{selectedItem.title}</h2>
+            <img
+                src={selectedItem.images.jpg.image_url}
+                alt={selectedItem.title}
+            />
+            <p><strong>Type:</strong> {selectedItem.type}</p>
+            <p><strong>Episodes:</strong> {selectedItem.episodes}</p>
+            <p><strong>Rating:</strong> {selectedItem.score}</p>
+            <p><strong>Year:</strong> {selectedItem.year}</p>
+            <p><strong>Synopsis:</strong> {selectedItem.synopsis}</p>
         </div>
     );
 }

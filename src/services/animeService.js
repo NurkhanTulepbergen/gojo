@@ -1,10 +1,7 @@
-// src/services/animeService.js
 
 const BASE_URL = "https://api.jikan.moe/v4";
 
-/**
- * Получить список аниме (по поиску или топовые)
- */
+
 export async function getAll(query = "") {
     try {
         const url = query
@@ -22,9 +19,7 @@ export async function getAll(query = "") {
     }
 }
 
-/**
- * Получить одно аниме по ID
- */
+
 export async function getAnimeById(id) {
     try {
         const response = await fetch(`${BASE_URL}/anime/${id}`);

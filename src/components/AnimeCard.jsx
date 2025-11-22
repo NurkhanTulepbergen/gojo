@@ -1,8 +1,12 @@
 import React from "react";
 import "./AnimeCard.css";
+import {Link} from "react-router-dom";
 
 export default function AnimeCard({ anime, isFavorite, toggleFavorite }) {
+    const idddd = '/items/'+anime.mal_id;
+
     return (
+
         <div className="anime-card">
             <img
                 src={anime.images?.jpg?.image_url}
@@ -32,6 +36,9 @@ export default function AnimeCard({ anime, isFavorite, toggleFavorite }) {
                 >
                     {isFavorite ? "❤️" : "🤍"}
                 </button>
+
+                <Link to={idddd} className="btn">Details</Link>
+
             </div>
         </div>
     );

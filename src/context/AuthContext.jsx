@@ -1,5 +1,5 @@
 // src/context/AuthContext.jsx
-import { createContext, useContext, useEffect, useState } from "react";
+import {createContext, useCallback, useContext, useEffect, useState} from "react";
 import { auth } from "../firebase";
 import {
     onAuthStateChanged,
@@ -41,3 +41,4 @@ export function AuthProvider({ children }) {
 export function useAuth() {
     return useContext(AuthContext);
 }
+
