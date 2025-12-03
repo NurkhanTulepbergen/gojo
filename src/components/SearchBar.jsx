@@ -1,10 +1,14 @@
 import React from "react";
 import "./SearchBar.css";
+import { useDispatch, useSelector } from "react-redux";
+import {fetchItems} from "../features/items/itemsSlice";
+
 
 export default function SearchBar({ searchTerm, setSearchTerm, handleSearch, fetchAnime }) {
+    const dispatch = useDispatch();
     const handleClear = () => {
         setSearchTerm("");
-        fetchAnime(); // ✅ сразу подгружаем топ-аниме
+        dispatch(fetchItems(""))
     };
 
     return (

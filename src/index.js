@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-
 import { Provider } from 'react-redux';
 import { store } from './store';
 
@@ -16,4 +14,20 @@ root.render(
     </React.StrictMode>
 );
 
-reportWebVitals();
+// === PWA: регистрация service worker ===
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+                console.log(
+                    "%cService Worker registered:",
+                    "color: green",
+                    registration
+                );
+            })
+            .catch((error) => {
+                console.error("Service Worker registration failed:", error);
+            });
+    });
+}
